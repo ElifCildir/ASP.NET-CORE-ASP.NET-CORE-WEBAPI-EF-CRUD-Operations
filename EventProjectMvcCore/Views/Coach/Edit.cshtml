@@ -1,0 +1,43 @@
+﻿@model EventProjectMvcCore.Models.Coach
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Coaches</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @Html.HiddenFor(model=>model.CoachID)
+            <div class="form-group">
+                <label asp-for="CoachNameSurname" class="control-label"></label>
+                <input asp-for="CoachNameSurname" class="form-control" />
+                <span asp-validation-for="CoachNameSurname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CoachCountry" class="control-label"></label>
+                <input asp-for="CoachCountry" class="form-control" />
+                <span asp-validation-for="CoachCountry" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CoachStartDate" class="control-label"></label>
+                <input asp-for="CoachStartDate" class="form-control" />
+                <span asp-validation-for="CoachStartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" /> |
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

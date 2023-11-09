@@ -1,0 +1,49 @@
+﻿@model IEnumerable<EventProjectMvcCore.Models.Coach>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Coaches</h1>
+<br />
+
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+
+<table class="table">
+    <thead>
+        <tr>
+          
+            <th>
+                @Html.DisplayNameFor(model => model.CoachNameSurname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CoachCountry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CoachStartDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.CoachNameSurname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoachCountry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoachStartDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.CoachID  } , new {@class="btn btn-warning"}) |
+               
+                    @Html.ActionLink("Delete", "Delete", new { id=item.CoachID },  new {@class="btn btn-danger"}  )
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

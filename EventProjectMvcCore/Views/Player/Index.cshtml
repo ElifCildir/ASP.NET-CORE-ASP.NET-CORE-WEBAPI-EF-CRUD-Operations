@@ -1,0 +1,56 @@
+﻿@model IEnumerable<EventProjectMvcCore.Models.Player>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Players</h1>
+
+<br />
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+
+<table class="table">
+    <thead>
+        <tr>
+          
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerNameSurname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerDOB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerCountry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+   
+            <td>
+                @Html.DisplayFor(modelItem => item.PlayerNameSurname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlayerDOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlayerCountry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.PlayerID  },  new{@class="btn btn-warning"}     ) |
+              
+                @Html.ActionLink("Delete", "Delete", new {  id=item.PlayerID }, new{@class="btn btn-danger"})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

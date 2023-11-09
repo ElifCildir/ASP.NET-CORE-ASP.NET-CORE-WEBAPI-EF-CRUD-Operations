@@ -1,0 +1,49 @@
+﻿@model EventProjectMvcCore.Models.Player
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Players</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+          
+            <div class="form-group">
+                <label asp-for="PlayerNameSurname" class="control-label"></label>
+                <input asp-for="PlayerNameSurname" class="form-control" />
+                <span asp-validation-for="PlayerNameSurname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerDOB" class="control-label"></label>
+                <input asp-for="PlayerDOB" class="form-control" />
+                <span asp-validation-for="PlayerDOB" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerCountry" class="control-label"></label>
+                <input asp-for="PlayerCountry" class="form-control" />
+                <span asp-validation-for="PlayerCountry" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TeamID" class="control-label"></label>
+                <input asp-for="TeamID" class="form-control" />
+                <span asp-validation-for="TeamID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success" /> |
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

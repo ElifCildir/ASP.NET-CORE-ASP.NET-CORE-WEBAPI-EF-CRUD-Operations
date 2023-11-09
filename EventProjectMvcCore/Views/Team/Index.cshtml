@@ -1,0 +1,62 @@
+﻿@model IEnumerable<EventProjectMvcCore.Models.Team>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Teams</h1>
+
+<br />
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+
+<table class="table">
+    <thead>
+        <tr>
+          
+            <th>
+                @Html.DisplayNameFor(model => model.TeamName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamLogo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamNumberofMember)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YearFounded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CoachId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamLogo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamNumberofMember)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearFounded)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoachId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.TeamID  } , new{@class="btn btn-warning"}       ) |
+
+                    @Html.ActionLink("Delete", "Delete", new { id=item.TeamID},  new{@class="btn btn-danger"})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
